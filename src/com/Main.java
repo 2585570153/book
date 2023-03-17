@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author : ad
  **/
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws Exception {
         try {
             // 创建一个 FileReader 对象来读取文件
             FileReader reader = new FileReader("src\\banner.txt");
@@ -32,12 +32,8 @@ public class Main {
             e.printStackTrace();
         }
         Index index = new Index();
-        System.out.println("用户名：");
-        Scanner scanner = new Scanner(System.in);
-        String name= scanner.next();
-        System.out.println("密码：");
-        String password = scanner.next();
-        Login login = new Login(name,password);
+
+
 
     }
 }

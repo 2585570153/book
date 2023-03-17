@@ -18,6 +18,7 @@ public class Login {
             Ui ui =new Ui();
         }else {
             System.out.println("账号密码错误");
+            Index.run();
         }
     }
 

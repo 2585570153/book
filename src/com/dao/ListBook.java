@@ -9,11 +9,11 @@ public class ListBook {
     static ArrayList<Book> listbook = new ArrayList<Book>();
 
     public static void read() {
-        Book book1 = new Book(1,"Java编程思想", "Bruce Eckel", "机械工业出版社", "2007年9月","充足",0);
-        Book book2 = new Book(2,"深入浅出MySQL", "杨志刚", "电子工业出版社", "2018年1月","充足",0);
-        Book book3 = new Book(3,"计算机网络自顶向下方法", "James F.Kurose", "机械工业出版社", "2008年9月","充足",0);
-        Book book4 = new Book(4,"算法导论", "Thomas H.Cormen", "机械工业出版社", "2009年9月","充足",0);
-        Book book5 = new Book(5,"高性能MySQL", "Bruce Eckel", "电子工业出版社", "2010年9月","充足",0);
+        Book book1 = new Book(1,"Java思想", "Bruce", "机械工业出版社", "2007年9月","充足",0);
+        Book book2 = new Book(2,"Java放弃", "杨志刚", "电子工业出版社", "2018年1月","充足",0);
+        Book book3 = new Book(3,"计算机网络", "James", "机械工业出版社", "2008年9月","充足",0);
+        Book book4 = new Book(4,"算法导论", "Thomas", "机械工业出版社", "2009年9月","充足",0);
+        Book book5 = new Book(5,"高性能MySQL", "Eckel", "电子工业出版社", "2010年9月","充足",0);
 
         listbook.add(book1);
         listbook.add(book2);
@@ -53,53 +53,66 @@ public class ListBook {
         }
     }
     // 添加
-    public static void create(String bookname, String author, String print, String date,String state,int count){
-        listbook.add(new Book(1+listbook.size(),bookname, author, print, date,state,count));
-        System.out.println("添加成功");
+    public static void create(String bookname, String author, String print, String date,String state,int count) {
+        int temp = 0;
         for (Book book : listbook) {
-            String string = book.toString();
-            System.out.println(string);
+            String string = book.getBookname();
+            if (string.equals(bookname)) {
+                System.out.println("图书中已有本书，不需要再添加");
+                temp = 1;
+            }
+        }
+        if (temp == 0) {
+            listbook.add(new Book(1 + listbook.size(), bookname, author, print, date, state, count));
+            System.out.println("添加成功");
+            for (Book book1 : listbook) {
+                String string1 = book1.toString();
+                System.out.println(string1);
+            }
+
         }
     }
+
 //修改图书
-    public static void upauthor(int id,String upauthor){
-        Book upbook=listbook.get(id-1);
-        upbook.setAuthor(upauthor);
-        listbook.set(id-1,upbook);
-        System.out.println("修改成功");
-        Book deletebook =listbook.get(id-1);
-        Listlog.updata(deletebook.getBookname());
-        for (Book book : listbook) {
-            String string = book.toString();
-            System.out.println(string);
+        public static void upauthor ( int id, String upauthor){
+            Book upbook = listbook.get(id - 1);
+            upbook.setAuthor(upauthor);
+            listbook.set(id - 1, upbook);
+            System.out.println("修改成功");
+            Book deletebook = listbook.get(id - 1);
+            Listlog.updata(deletebook.getBookname());
+            for (Book book : listbook) {
+                String string = book.toString();
+                System.out.println(string);
+            }
         }
-    }
-    //修改图书
-    public static void upprint(int id,String upprint){
-        Book upbook=listbook.get(id-1);
-        upbook.setPrint(upprint);
-        listbook.set(id-1,upbook);
-        System.out.println("修改成功");
-        Book deletebook =listbook.get(id-1);
-        Listlog.updata(deletebook.getBookname());
-        for (Book book : listbook) {
-            String string = book.toString();
-            System.out.println(string);
+        //修改图书
+        public static void upprint ( int id, String upprint){
+            Book upbook = listbook.get(id - 1);
+            upbook.setPrint(upprint);
+            listbook.set(id - 1, upbook);
+            System.out.println("修改成功");
+            Book deletebook = listbook.get(id - 1);
+            Listlog.updata(deletebook.getBookname());
+            for (Book book : listbook) {
+                String string = book.toString();
+                System.out.println(string);
+            }
         }
-    }
-    //修改图书
-    public static void updata(int id,String updata){
-        Book upbook=listbook.get(id-1);
-        upbook.setPubDate(updata);
-        listbook.set(id-1,upbook);
-        System.out.println("修改成功");
-        Book deletebook =listbook.get(id-1);
-        Listlog.updata(deletebook.getBookname());
-        for (Book book : listbook) {
-            String string = book.toString();
-            System.out.println(string);
+        //修改图书
+        public static void updata ( int id, String updata){
+            Book upbook = listbook.get(id - 1);
+            upbook.setPubDate(updata);
+            listbook.set(id - 1, upbook);
+            System.out.println("修改成功");
+            Book deletebook = listbook.get(id - 1);
+            Listlog.updata(deletebook.getBookname());
+            for (Book book : listbook) {
+                String string = book.toString();
+                System.out.println(string);
+            }
         }
-    }
+
     //修改图书
     public static void upbookname(int id,String upbookname){
         Book upbook=listbook.get(id-1);

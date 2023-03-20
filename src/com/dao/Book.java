@@ -35,7 +35,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return  "书名：《" + bookname +"》"+"\t"+ "作者：" + author +"\t"+  "出版社：" + print+"\t" +  "出版日期" + pubDate+"\t"+"库存："+state+"\t"+"借阅次数：" + count;
+        return  id+"\t"+"书名：《" + bookname +"》"+"\t"+ "作者：" + author +"\t"+  "出版社：" + print+"\t" +  "出版日期" + pubDate+"\t"+"库存："+state+"\t"+"借阅次数：" + count;
     }
 
     public void setBookname(String bookname) {

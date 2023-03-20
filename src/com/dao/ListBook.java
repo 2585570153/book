@@ -13,7 +13,7 @@ public class ListBook {
         Book book2 = new Book(2,"Java放弃", "杨志刚", "电子工业出版社", "2018年1月","充足",0);
         Book book3 = new Book(3,"计算机网络", "James", "机械工业出版社", "2008年9月","充足",0);
         Book book4 = new Book(4,"算法导论", "Thomas", "机械工业出版社", "2009年9月","充足",0);
-        Book book5 = new Book(5,"高性能MySQL", "Eckel", "电子工业出版社", "2010年9月","充足",0);
+        Book book5 = new Book(5,"java", "Eckel", "电子工业出版社", "2010年9月","充足",0);
 
         listbook.add(book1);
         listbook.add(book2);
@@ -40,6 +40,10 @@ public class ListBook {
                 Listlog.delete(deletebook.getBookname());
                 listbook.remove(i-1);
                 System.out.println("删除成功");
+                for (int j= 0;j<listbook.size();j++){
+                    Book book = listbook.get(j);
+                    book.setId(j+1);
+                }
                 for (Book book : listbook) {
                     String string = book.toString();
                     System.out.println(string);
@@ -128,16 +132,17 @@ public class ListBook {
     }
         public static void ifoutbook(String outbookname){
             for (int i=0;i<=listbook.size();i++) {
+                if (i == listbook.size()){
+                    System.out.println("查询失败，请重新输入");
+                    break;
+                }
                 Book ifoutbook =listbook.get(i);
                 String name =ifoutbook.getBookname();
                 if (name.equals(outbookname)){
                     outbook(ifoutbook.getId());
                     break;
                 }
-                if (i == listbook.size()-1){
-                    System.out.println("查询失败，请重新输入");
-                    break;
-                }
+
             }
 
         }
@@ -157,16 +162,17 @@ public class ListBook {
     }
     public static void ifinbook(String inbookname){
         for (int i=0;i<=listbook.size();i++) {
+            if (i == listbook.size()){
+                System.out.println("没有查到这本书，请重新输入");
+                break;
+            }
             Book ifinbook =listbook.get(i);
             String name =ifinbook.getBookname();
             if (name.equals(inbookname)){
                 inbook(ifinbook.getId());
                 break;
             }
-            if (i == listbook.size()-1){
-                System.out.println("没有查到这本书，请重新输入");
-                break;
-            }
+
         }
 
     }

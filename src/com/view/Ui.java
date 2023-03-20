@@ -68,7 +68,7 @@ public class Ui  {
                     break;
                 case 2:
                     System.out.println("************************************");
-                    System.out.println("*******请输入你删除哪一行书籍**********");
+                    System.out.println("*******请输入你删除书籍的id**********");
                     System.out.println("********退出删除书籍功能请按a**********");
                     System.out.println("************************************");
                     String intid = scanner.next();
@@ -96,42 +96,47 @@ public class Ui  {
                     if (!upid2.equals(temp2)){
                         if (isNumeric(upid2)){
                             int upid= Integer.parseInt(upid2);
-                            System.out.println("************************************");
-                            System.out.println("********请选择你的命令进行控制操作*******");
-                            System.out.println("1.修改书名 2.修改作者 3.修改出版社 4.修改出版日期");
-                            System.out.println("************************************");
-                            String temp3 = scanner.next();
-                            int temp4= Integer.parseInt(temp3);
-                            switch (temp4){
-                                case 1:
-                                    System.out.println("请输入修改书名");
-                                    String upbookname = scanner.next();
-                                    Updata.upbookname(upid,upbookname);
-                                    run();
-                                    break;
-                                case 2:
-                                    System.out.println("请输入修改作者");
-                                    String updauthor = scanner.next();
-                                    Updata.updauthor(upid,updauthor);
-                                    run();
-                                    break;
-                                case 3:
-                                    System.out.println("请输入修改出版社名字");
-                                    String upprint = scanner.next();
-                                    Updata.upprint(upid,upprint);
-                                    run();
-                                    break;
-                                case 4:
-                                    System.out.println("请输入修改出版社日期");
-                                    String updata = scanner.next();
-                                    Updata.updata(upid,updata);
-                                    run();
-                                    break;
-                                default:
-                                    System.out.println("没有这个指令，请重新修改");
-                                    fun(3);
-                                    break;
-                                    }
+                            if(upid<5&&upid>0){
+                                System.out.println("************************************");
+                                System.out.println("********请选择你的命令进行控制操作*******");
+                                System.out.println("1.修改书名 2.修改作者 3.修改出版社 4.修改出版日期");
+                                System.out.println("************************************");
+                                String temp3 = scanner.next();
+                                int temp4= Integer.parseInt(temp3);
+                                switch (temp4){
+                                    case 1:
+                                        System.out.println("请输入修改书名");
+                                        String upbookname = scanner.next();
+                                        Updata.upbookname(upid,upbookname);
+                                        run();
+                                        break;
+                                    case 2:
+                                        System.out.println("请输入修改作者");
+                                        String updauthor = scanner.next();
+                                        Updata.updauthor(upid,updauthor);
+                                        run();
+                                        break;
+                                    case 3:
+                                        System.out.println("请输入修改出版社名字");
+                                        String upprint = scanner.next();
+                                        Updata.upprint(upid,upprint);
+                                        run();
+                                        break;
+                                    case 4:
+                                        System.out.println("请输入修改出版社日期");
+                                        String updata = scanner.next();
+                                        Updata.updata(upid,updata);
+                                        run();
+                                        break;
+                                    default:
+                                        System.out.println("没有这个指令，请重新修改");
+                                        fun(3);
+                                        break;
+                                }
+                            }else{
+                                System.out.println("请按照规定输入指令");
+                            }
+
 
                         }else {
                             System.out.println("请按照规定输入数字，不要挑战这个程序的健壮性");

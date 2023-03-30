@@ -96,12 +96,19 @@ public class Ui  {
                     if (!upid2.equals(temp2)){
                         if (isNumeric(upid2)){
                             int upid= Integer.parseInt(upid2);
-                            if(upid<5&&upid>0){
+                            if (upid> ListBook.size()) {
+                                System.out.println("超出范围了");
+                                fun (3);
+                            }
                                 System.out.println("************************************");
                                 System.out.println("********请选择你的命令进行控制操作*******");
                                 System.out.println("1.修改书名 2.修改作者 3.修改出版社 4.修改出版日期");
                                 System.out.println("************************************");
                                 String temp3 = scanner.next();
+                                if (!isNumeric(temp3)){
+                                    System.out.println("请按照规定输入数字，不要挑战这个程序的健壮性");
+                                    fun (3);
+                                }
                                 int temp4= Integer.parseInt(temp3);
                                 switch (temp4){
                                     case 1:
@@ -133,9 +140,6 @@ public class Ui  {
                                         fun(3);
                                         break;
                                 }
-                            }else{
-                                System.out.println("请按照规定输入指令");
-                            }
 
 
                         }else {

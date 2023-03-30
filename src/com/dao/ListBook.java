@@ -190,4 +190,7 @@ public class ListBook {
             System.out.println("当前书籍库存充足，检查书名是否输入正确");
         }
     }
+    public static int size(){
+        return listbook.size();
+    }
 }
